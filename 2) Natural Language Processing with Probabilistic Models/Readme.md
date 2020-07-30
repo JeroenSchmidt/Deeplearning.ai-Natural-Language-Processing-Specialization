@@ -3,7 +3,7 @@
 Welcome to the [second course](https://www.coursera.org/learn/probabilistic-models-in-nlp) of the Natural Language Processing Specialization at [Coursera](https://www.coursera.org/specializations/natural-language-processing) which is moderated by [DeepLearning.ai](http://deeplearning.ai/). The course is taught by Younes Bensouda Mourri, Łukasz Kaiser and Eddy Shyu.
 
 # My Certificate
- ![alt text](https://coursera-certificate-images.s3.amazonaws.com/88UMSZRKMJJR " Ibrahim Jelliti: Natural Language Processing with Probabilistic Models")
+ ![alt text](URL "Jeroen Schmidt: Natural Language Processing with Probabilistic Models")
 
 ## Table of contents
 - [Natural Language Processing with Probabilistic Model](#natural-language-processing-with-probabilistic-model)
@@ -77,10 +77,12 @@ In Course 2 of the Natural Language Processing Specialization, offered by deeple
   2. Find strings n edit distance away
   3. Filter candidates
   4. Calculate word probabilities 
+
+
 ### Building the model
-- Identify a misspelled word
+1. Identify a misspelled word
   - If word not in vocabulary then its misspedlled 
-- Find strings n edit distance away
+2. Find strings n edit distance away
   - Edit: an operation performed on a string to change it
     - how many operations away one string is from another
       - Insert (add a letter)
@@ -93,13 +95,14 @@ In Course 2 of the Natural Language Processing Specialization, offered by deeple
          - Example: jaw ==> jar,paw,saw,...
  -  By combining the 4 edit operations, we get list of all possible strings that are n edit.
     - ![](Images/1.png)
-- Filter candidates: 
+3. Filter candidates: 
   - From the list from step 2, consider only real and correct spelled word
   - if the edit word not in vocabualry ==> remove it from list of candidates
     - ![](Images/2.png)
-- Calculate word probabilities: the word candidate is the one with the highest probability 
+4. Calculate word probabilities: the word candidate is the one with the highest probability 
   - a word probablity in a corpus is: number of times the word appears divided by the total number of words.
     - ![](Images/3.png) 
+
 ### Minimum edit distance
 - Evaluate the similarity between 2 strings
 - Minimum number of edits needed to transform 1 string into another
@@ -111,6 +114,7 @@ In Course 2 of the Natural Language Processing Specialization, offered by deeple
   -  machine translation
   -  DNA sequencing
   -  etc
+ 
 ### Minimum edit distance algorithm
 - The source word layed on the column
 - The target word layed on the row
