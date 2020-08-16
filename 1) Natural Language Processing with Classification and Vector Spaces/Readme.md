@@ -1,9 +1,9 @@
-![](https://media-exp1.licdn.com/dms/image/C5622AQE93SfLu9WSeA/feedshare-shrink_2048_1536/0?e=1596672000&v=beta&t=m7lKkARJn-DdgMEsTXkvER982QE2wualiIJOiFnK584)
+![](Images/dl.ai-square-logo-1.png)
 # Natural Language Processing with Classification and Vector Spaces
 Welcome to the [first course](https://www.coursera.org/learn/classification-vector-spaces-in-nlp) of the Natural Language Processing Specialization at [Coursera](https://www.coursera.org/specializations/natural-language-processing) which is moderated by [DeepLearning.ai](http://deeplearning.ai/). The course is taught by Younes Bensouda Mourri, Łukasz Kaiser and Eddy Shyu.
 
 # My Certificate
- ![alt text](https://coursera-certificate-images.s3.amazonaws.com/ZXN4K5HPKFRZ " Ibrahim Jelliti: Natural Language Processing with Classification and Vector Spaces")
+[Coursera Certification](https://www.coursera.org/account/accomplishments/records/9WS6FVAVYLNT?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course)
  
 ## Table of contents
 
@@ -135,6 +135,7 @@ Supervised Machine Learning
     - ![](Images/11.png)
 
 ## Naive Bayes
+
 ### Conditional Probability
 - In a corpus of tweets that can be categorized as either positive or negative sentiment, such words are sometimes being labeled positive and sometimes negative.pain
 - ![](Images/12.png)
@@ -143,26 +144,32 @@ Supervised Machine Learning
 - The probability of the tweets expressing a negative sentiment is just equal to one minus the probability of a positive sentiment.
 - ![](Images/13.png)
 - Conditional probabilities is the probability of an outcome B knowing that event A already happened.
+
 ### Bayes' rule
 - Bayes' rule states that the probability of X given Y is equal to the probability of Y given X times the ratio of the probability of X over the probability of Y.
 - ![](Images/14.png)
 -  The first step for Naive Bayes allows you to compute the conditional probabilities of each word given the class. 
 -  ![](Images/15.png)
+
 ### Laplace smoothing
 - Laplacian smoothing, a technique you can use to avoid your probabilities being zero.
 - ![](Images/16.png)
 - Appliying the formula on the table, the sum of probabilities will still be one and no longer has a probability of zero.
 - ![](Images/44.png)
+
 ### Ratio of probabilities
 - based on the last table, ratio of probability are defined as the positive conditional probabilitie of a word divided by its negative probability.
 - ![](Images/17.png)
+
 ### Likelihood times prior
 - Likelihood times prior 
 - ![](Images/18.png)
+
 ### Log Likelihood + log prior
 - To avoid numerical underflow (due to multiplying small numbers) we compute the log of the likelihood
 - ![](Images/19.png)
 - If the Log Likelihood + log prior > 0 Then the tweet has a positive sentiment. Otherwise, the tweet has a negative sentiment.
+
 ### Training Naïve Bayes
 - To training Naïve Bayes model you need to do:
     1. Get and annotate the dataset with positive and negative tweets
@@ -176,6 +183,7 @@ Supervised Machine Learning
     4. get probability for a given class by using the Laplacian smoothing formula: P(w|pos),P(w|neg)
     5. Compute λ(w), log of the ratio of your conditional probabilities
     6. Compute logprior=log(P(Pos)/P(Neg))
+
 ### Testing Naïve Bayes
 - To test the trained model, we take the conditional probabilities and we use them to predict the sentiments of new unseen tweets.
 - To evaluate the model, we use the test sets of annotated tweets 
@@ -183,6 +191,7 @@ Supervised Machine Learning
 - The accuracy is then
   - ![](Images/20.png)
 - Words that are not seen in the training set are considered neutral, and so add **0** to the score 
+
 ### Naïve Bayes Applications
 - Naïve Bayes has many Applications
   - Sentiment analysis
@@ -199,6 +208,7 @@ Supervised Machine Learning
 - Naïve Bayes Assumptions:
   - Conditional Independence : Not True in NLP
   - Relative frequency of training classes affect the model and can be not representative of the real world distribution
+
 ### Sources of Errors in Naïve Bayes
 - Naive bayes Error Analysis can happen at:
   - Preprocessing
@@ -211,6 +221,7 @@ Supervised Machine Learning
     - Example: This is a ridiculously powerful movie. The plot was gripping and I cried right through until the ending
 
 ## Word Embeddings
+
 ### Vector space models
 - Vector space models repesent words and documents as Vectors that captures relative meaning by identifying the context around
 each word in the text
@@ -221,24 +232,30 @@ each word in the text
   - Information Extraction
   - Machine Translation
   - Chatbots
+
 ### Word by Word Design
 - Count the number of times each two words occur together within a certain distance k
   - ![](Images/27.png)
+
 ### Word by Document Design
 - Count the number of times a word occurs within a certain category
   - ![](Images/28.png)
+
 ### Euclidean distance
 - Euclidean distance is the length of the straight line between points
 - For two vectors the formula and in python is :
   - ![](Images/29.png)
 - Euclidean distance can be misleading when corpora have different sizes
+
 ### Cosine similarity
 - For two vectors v,w the cosine of their angle β is given by :
   - ![](Images/30.png)
 - Cosine similarity give values between 0 and 1
+
 ### Manipulating Words in Vector Spaces
 - If the vectors space are representative of the meaning then we can do operations like
   - ![](Images/31.png) 
+
 ### PCA
 -  Visualization words vector space which can be in a higher dimension into a 2 or 3 dimension space so you can see relationships between words.
 - PCA consists in projecting your vectors in a lower dimension space, while trying to retain as much information as possible.
@@ -259,11 +276,20 @@ each word in the text
 - Documents can be represented as vectors with the same dimension as words.
 - Add the word vectors that figure in the document.
   - ![](Images/43.png)
+
 ### Transforming word vectors
-- In order to translate from a language a word vectors are X to another language a word vectors are Y we want to build a matrix R such that : 
-  - ![](Images/34.png) 
-- To solve for R we use gradient descent for the following loss:
-  - ![](Images/35.png)
+
+In order to translate from a language a word vectors are X to another language a word vectors are Y we want to build a matrix R such that : 
+
+![](Images/34.png) 
+
+To solve for R we use gradient descent for the following loss:
+![](Images/35.png)
+  
+Wehre the frobenius norm is defined as:
+
+$$\|\mathrm{A}\|_{F} \equiv \sqrt{\sum_{i=1}^{m} \sum_{j=1}^{n}\left|a_{i j}\right|^{2}}$$
+
 ### K-nearest neighbors
 - To translate from X to Y using the R matrix, you may find that XR doesn't correspond to any specific vector in Y.
 - KNN can search for the K nearest neighbors from the computed vector XR
@@ -275,6 +301,7 @@ each word in the text
 - A simple hash function : Hash Value = vector % number of buckets
   - ![](Images/37.png)  
 - This function does not store similar objects in the same bucket ⇒ Locality sensitive hashing
+
 ### Locality Sensitive Hashing
 - Separate the space using hyperplanes
   - ![](Images/38.png)
@@ -284,6 +311,7 @@ each word in the text
   - ![](Images/39.png)
 - the hash value is:
   - ![](Images/40.png)
+
 ### Approximate nearest neighbors
 - Subdivide the space using multiple sets of random planes
   - ![](Images/41.png)
